@@ -2,161 +2,317 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gridea</title>
-<meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1575782207539">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<title>乱红倾世的小站</title>
+<meta name="description" content="<h5>记录目光所及之处，或随想，或技术，或其它</h5>" />
+<link rel="shortcut icon" href="https://lhqs.github.io/favicon.ico?v=1575990101287">
+<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://lhqs.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="乱红倾世的小站 - Atom Feed" href="https://lhqs.github.io/atom.xml">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="http://localhost:4000">
-  <img class="avatar" src="http://localhost:4000/images/avatar.png?v=1575782207539" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div class="homepage">
+      <div class="head">
+  <div class="inner">
+    <a class="site-name" href="https://lhqs.github.io">
+        <span>乱红倾世的小站</span>
+    </a>
+    <label class="burger" for="burger"></label>
+    <input id="burger" type="checkbox">
+    <button class="burger">
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <nav class="info_nav">
       
-        <a href="http://localhost:4000/" class="menu">
-          首页
-        </a>
+        
+          <a href="/">首页</a>
+        
       
-    
+        
+          <a href="/archives">归档</a>
+        
       
-        <a href="http://localhost:4000/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags">标签</a>
+        
       
-    
+        
+          <a href="/post/about">关于</a>
+        
       
-        <a href="http://localhost:4000/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="http://localhost:4000/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    </nav>
   </div>
 </div>
-
-    
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="http://localhost:4000/post/hello-gridea">
-        <h2 class="post-title">Hello Gridea</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2018-12-12
-        </span>
-        <span>
-          2 min read
-        </span>
-        
-          <a href="http://localhost:4000/tag/yYPX7hpug" class="post-tag">
-            # Gridea
-          </a>
-        
-      </div>
-      
-        <a href="http://localhost:4000/post/hello-gridea" class="post-feature-image" style="background-image: url('http://localhost:4000/post-images/hello-gridea.png')">
-        </a>
-      
-      <div class="post-abstract">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-      </div>
-    </article>
-  
-</div>
-
-    
-        <div class="pagination-container">
-  
-  
-</div>
-
-    
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="http://localhost:4000/atom.xml" target="_blank">RSS</a>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
-
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
-
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
-
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
-
-</script>
-
+    </div>
+    <div class="info _site">
+      <div class="inner">
+        <div class="info_main">
+          
+            <h1 class="info_title"><a href="https://lhqs.github.io">乱红倾世的小站</a></h1>
+            <h2 class="info_subtitle"><h5>记录目光所及之处，或随想，或技术，或其它</h5></h2>
+            <nav class="info_nav">
+              
+                
+                  <a href="/">首页</a>
+                
+              
+                
+                  <a href="/archives">归档</a>
+                
+              
+                
+                  <a href="/tags">标签</a>
+                
+              
+                
+                  <a href="/post/about">关于</a>
+                
+              
+            </nav>
+          
+        </div>
       </div>
     </div>
+    <div class="main">
+      <div class="inner">
+        <div class="items">
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="https://lhqs.github.io/post-images/2019-nian-11-yue-ke-gong-kai-ri-ji.jpg" href="https://lhqs.github.io/post/2019-nian-11-yue-ke-gong-kai-ri-ji" style="background-image:url('https://lhqs.github.io/post-images/2019-nian-11-yue-ke-gong-kai-ri-ji.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/2019-nian-11-yue-ke-gong-kai-ri-ji">
+        <div class="item-meta">
+          <time datetime="2019-12-02 00:13:49">2019-12-02</time>
+        </div>
+        <h2>2019年11月可公开日记</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/img/user/f8d14c460d4440.jpeg" href="https://lhqs.github.io/post/2019-nian-10-yue-ri-ji" style="background-image:url('http://qiniu.lhqs1314.cn/img/user/f8d14c460d4440.jpeg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/2019-nian-10-yue-ri-ji">
+        <div class="item-meta">
+          <time datetime="2019-10-12 17:11:52">2019-10-12</time>
+        </div>
+        <h2>2019年10月可公开日记</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/aaaa/focus.jpg" href="https://lhqs.github.io/post/wai-mai-qi-shou-~ji" style="background-image:url('http://qiniu.lhqs1314.cn/aaaa/focus.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/wai-mai-qi-shou-~ji">
+        <div class="item-meta">
+          <time datetime="2019-10-08 17:13:47">2019-10-08</time>
+        </div>
+        <h2>外卖骑手~记</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="https://lhqs.github.io/post-images/2019-nian-9-yue-ri-ji.jpg" href="https://lhqs.github.io/post/2019-nian-9-yue-ri-ji" style="background-image:url('https://lhqs.github.io/post-images/2019-nian-9-yue-ri-ji.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/2019-nian-9-yue-ri-ji">
+        <div class="item-meta">
+          <time datetime="2019-09-30 16:26:57">2019-09-30</time>
+        </div>
+        <h2>2019年9月可公开日记</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/228791-106.jpg" href="https://lhqs.github.io/post/li-shi-guan-ying-ji-lu" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/228791-106.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/li-shi-guan-ying-ji-lu">
+        <div class="item-meta">
+          <time datetime="2019-09-30 16:08:40">2019-09-30</time>
+        </div>
+        <h2>历史观影记录</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/sea_tree.jpg" href="https://lhqs.github.io/post/xun-qiu-ben-zhi" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/sea_tree.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/xun-qiu-ben-zhi">
+        <div class="item-meta">
+          <time datetime="2019-09-28 16:57:19">2019-09-28</time>
+        </div>
+        <h2>寻求本质</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/6f8a2832gy1fl67mcglzpj21hc0u0x6p.jpg" href="https://lhqs.github.io/post/xiao-gan-xiang" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/6f8a2832gy1fl67mcglzpj21hc0u0x6p.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/xiao-gan-xiang">
+        <div class="item-meta">
+          <time datetime="2019-09-27 16:46:39">2019-09-27</time>
+        </div>
+        <h2>小感想</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/%E6%89%A7%E5%89%91%E4%BA%BA-wallpaper.png" href="https://lhqs.github.io/post/xu-yan" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/%E6%89%A7%E5%89%91%E4%BA%BA-wallpaper.png');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/xu-yan">
+        <div class="item-meta">
+          <time datetime="2019-09-17 16:54:05">2019-09-17</time>
+        </div>
+        <h2>虚言</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/theyelldow.jpg" href="https://lhqs.github.io/post/guan-dian-xiang" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/theyelldow.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/guan-dian-xiang">
+        <div class="item-meta">
+          <time datetime="2019-09-09 16:56:31">2019-09-09</time>
+        </div>
+        <h2>观点向</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/red-background.png" href="https://lhqs.github.io/post/ji-zhu-lun-yan" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/red-background.png');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/ji-zhu-lun-yan">
+        <div class="item-meta">
+          <time datetime="2019-09-04 16:49:29">2019-09-04</time>
+        </div>
+        <h2>技术论言</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/4693068-47e93f2f59dcf4f6.jpg" href="https://lhqs.github.io/post/na-duan-ji-yi" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/4693068-47e93f2f59dcf4f6.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/na-duan-ji-yi">
+        <div class="item-meta">
+          <time datetime="2019-08-28 17:32:05">2019-08-28</time>
+        </div>
+        <h2>那段记忆</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="http://qiniu.lhqs1314.cn/file/lab/6d2acb3agy1fmtap6yrv8j20jg0eljsn.jpg" href="https://lhqs.github.io/post/guo-wang-ji-yi" style="background-image:url('http://qiniu.lhqs1314.cn/file/lab/6d2acb3agy1fmtap6yrv8j20jg0eljsn.jpg');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/guo-wang-ji-yi">
+        <div class="item-meta">
+          <time datetime="2019-08-23 16:41:55">2019-08-23</time>
+        </div>
+        <h2>过往记忆</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="https://lhqs.github.io/post-images/hello-gridea.png" href="https://lhqs.github.io/post/hello-gridea" style="background-image:url('https://lhqs.github.io/post-images/hello-gridea.png');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/hello-gridea">
+        <div class="item-meta">
+          <time datetime="2018-12-12 00:00:00">2018-12-12</time>
+        </div>
+        <h2>Hello Gridea</h2>
+      </a>
+    </div>
+  
+    <div class="item Article">
+      
+        <a class="item-image js-cover" data-src="https://lhqs.github.io/post-images/hello-gridea.png" href="https://lhqs.github.io/post/hello-gridea2" style="background-image:url('https://lhqs.github.io/post-images/hello-gridea.png');"></a>
+      
+      <a class="item-main" href="https://lhqs.github.io/post/hello-gridea2">
+        <div class="item-meta">
+          <time datetime="2018-12-12 00:00:00">2018-12-12</time>
+        </div>
+        <h2>Hello Gridea</h2>
+      </a>
+    </div>
+  
+</div>
+
+        
+          <div class="navigation">
+  
+  
+</div>
+        
+      </div>
+    </div>
+
+    <footer class="footer">
+  <div class="main">
+    <a href="https://lhqs.github.io">
+      <img class="avatar" src="https://lhqs.github.io/images/avatar.png?v=1575990101287" alt="乱红倾世的小站">
+    </a>
+    <div class="footer__social">
+      
+        
+          <a href="https://github.com/lhqs" target="_blank"><i class="remixicon-github-line"></i></a>
+        
+      
+        
+          <a href="https://twitter.com/lhqs_gu" target="_blank"><i class="remixicon-twitter-line"></i></a>
+        
+      
+        
+          <a href="https://weibo.com/u/5369679542" target="_blank"><i class="remixicon-weibo-line"></i></a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://www.instagram.com/lhqs.gu/" target="_blank"><i class="remixicon-instagram-line"></i></a>
+        
+      
+        
+      
+        
+      
+    </div>
+    <p class="footer__sosumi">
+      @2019 乱红倾世的小站  <a href="http://www.beian.miit.gov.cn/" target="_blank">豫ICP备16038169号</a>
+    </p>
+    <a class="footer-rss" href="https://lhqs.github.io/atom.xml">RSS</a>
+  </div>
+</footer>
+
+<script src="https://lhqs.github.io/media/prism.js"></script>
+<script>
+  Prism.highlightAll()
+</script>
+
   </body>
 </html>
